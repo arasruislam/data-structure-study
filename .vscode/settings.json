@@ -1,0 +1,9 @@
+{
+   "editor.tabSize": 2,
+   "editor.detectIndentation": true,
+   "[cpp]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+   }
+}
