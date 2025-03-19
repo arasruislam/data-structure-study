@@ -18,49 +18,53 @@ void display(struct Node *head)
    }
 }
 
-// Insert at the end
-// struct Node *insertAtEnd(struct Node *head, int data)
+// Insert at the middle
+// struct Node *insertAtMiddle(struct Node *head, int data, int position)
 // {
 //    struct Node *fourth;
 //    fourth = malloc(sizeof(struct Node));
-//    struct Node *temp = head;
 //    fourth->data = data;
-//    fourth->next = NULL;
 
-//    if (head == NULL)
+//    struct Node *temp = head;
+//    int i = 1;
+
+//    // while (i < position-1)
+//    // {
+//    //    temp = temp->next;
+//    //    i++;
+//    // }
+//    for (int i = 2; i < position; i++)
 //    {
-//       head = fourth;
-//       return head;
+//       if (temp->next != NULL)
+//       {
+//          temp = temp->next;
+//       }
 //    }
 
-//    while (temp->next != NULL)
-//    {
-//       temp = temp->next;
-//    }
-
+//    fourth->next = temp->next;
 //    temp->next = fourth;
-   
+
 //    return head;
 // }
-void insertAtEnd(struct Node **head, int data)
+
+void insertAtMiddle(struct Node **head, int data, int position)
 {
    struct Node *fourth;
    fourth = malloc(sizeof(struct Node));
-   struct Node *temp = *head;
    fourth->data = data;
-   fourth->next = NULL;
 
-   if (*head == NULL)
+   struct Node *temp = *head;
+   int i = 1;
+
+   for (int i = 2; i < position; i++)
    {
-      *head = fourth;
-      return;
+      if (temp->next != NULL)
+      {
+         temp = temp->next;
+      }
    }
 
-   while (temp->next != NULL)
-   {
-      temp = temp->next;
-   }
-
+   fourth->next = temp->next;
    temp->next = fourth;
 }
 
@@ -86,15 +90,8 @@ int main()
    third->data = 3;
    third->next = NULL;
 
-   // Insert at the end
-   // struct Node *fourth;
-   // fourth = malloc(sizeof(struct Node));
-   // fourth->data = 4;
-   // fourth->next = NULL;
-   // third->next = fourth;
-
-   // head = insertAtEnd(head, 4);
-   insertAtEnd(&head, 4);
+   // Insert at the middle
+   insertAtMiddle(&head, 4, 2);
 
    // Print the Node
    display(head);
