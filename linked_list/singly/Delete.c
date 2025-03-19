@@ -31,6 +31,58 @@ void deleteAtBeginning(struct Node **head)
    free(temp);
 }
 
+void deleteAtEnd(struct Node **head)
+{
+   if(*head == NULL){
+      printf("List is empty\n");
+      return;
+   }
+
+   struct Node *temp = *head;
+   struct Node *prev = NULL;
+
+   while(temp->next != NULL){
+      prev = temp;
+      temp = temp->next;
+   }
+
+   if(prev == NULL){
+      *head = NULL;
+   }else{
+      prev->next = NULL;
+   }
+
+   free(temp);
+}
+
+void deleteAtMiddle(struct Node **head, int position)
+{
+   if(*head == NULL){
+      printf("List is empty\n");
+      return;
+   }
+
+   struct Node *temp = *head;
+   struct Node *prev = NULL;
+
+   for(int i = 1; i < position; i++){
+      if(temp->next == NULL){
+         printf("Position not found\n");
+         return;
+      }
+      prev = temp;
+      temp = temp->next;
+   }
+
+   if(prev == NULL){
+      *head = temp->next;
+   }else{
+      prev->next = temp->next;
+   }
+
+   free(temp);
+}
+
 int main()
 {
    // Create a Node
@@ -54,7 +106,9 @@ int main()
    third->next = NULL;
 
    // delete the Node
-   deleteAtBeginning(&head);
+   // deleteAtBeginning(&head);
+   // deleteAtEnd(&head);
+   deleteAtMiddle(&head, 2);
 
    // Print the Node
    display(head);
