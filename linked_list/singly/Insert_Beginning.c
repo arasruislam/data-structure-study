@@ -27,6 +27,7 @@ void display(struct Node *head)
 //    head = newNode;
 //    return head;
 // }
+
 void insertAtBeginning(struct Node **head, int data)
 {
    struct Node *newNode = malloc(sizeof(struct Node));

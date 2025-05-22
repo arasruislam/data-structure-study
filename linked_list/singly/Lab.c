@@ -14,13 +14,13 @@ struct Node{
 };
 
 // Display the Node
-void display(struct Node *head){
-   struct Node *temp = head;
-   while(temp != NULL){
-      printf("%d\n", temp->data);
-      temp = temp->next;
-   }
-}
+// void display(struct Node *head){
+//    struct Node *temp = head;
+//    while(temp != NULL){
+//       printf("%d\n", temp->data);
+//       temp = temp->next;
+//    }
+// }
 
 int main()
 {
@@ -45,12 +45,12 @@ int main()
    third->next = NULL;
 
    // Print the Node
-   // struct Node *temp = head;
-   // while(temp != NULL){
-   //    printf("%d\n", temp->data);
-   //    temp = temp->next;
-   // }
-   display(head);
+   struct Node *temp = head;
+   while(temp != NULL){
+      printf("%d\n", temp->data);
+      temp = temp->next;
+   }
+   // display(head);
 
    // Free the memory
    free(head);
