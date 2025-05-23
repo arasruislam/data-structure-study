@@ -179,7 +179,7 @@ int main()
   display(head);
 
   printf("\nInserting at position 2:\n");
-  insertAtMiddle(&head, 25, 2); // 10 → 20 → 25 → 30 → 40
+  insertAtMiddle(&head, 25, 2);
   display(head);
 
   printf("\nDeleting at beginning:\n");
@@ -191,8 +191,13 @@ int main()
   display(head);
 
   printf("\nDeleting at position 2:\n");
-  deleteAtMiddle(&head, 2); // 20 → 25 → 30
+  deleteAtMiddle(&head, 2);
   display(head);
+
+  // free memory
+  free(head);
+  free(first);
+  free(second);
 
   return 0;
 }
